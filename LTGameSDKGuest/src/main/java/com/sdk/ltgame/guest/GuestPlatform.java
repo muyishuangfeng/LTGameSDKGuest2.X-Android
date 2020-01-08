@@ -23,7 +23,7 @@ public class GuestPlatform extends AbsPlatform {
     private GuestHelper mGuestHelper;
 
 
-    public GuestPlatform(Context context, String appId,  String appKey, int target) {
+    public GuestPlatform(Context context, String appId, String appKey, int target) {
         super(context, appId, appKey, target);
     }
 
@@ -75,7 +75,7 @@ public class GuestPlatform extends AbsPlatform {
     @Override
     public void login(Activity activity, int target, LoginObject object, OnLoginStateListener listener) {
         mGuestHelper = new GuestHelper(activity, object.getmGoogleClient(), object.getmAdID(),
-                object.getStats(), object.getSelfRequestCode(), listener);
+                object.getSelfRequestCode(), listener);
         mGuestHelper.guestLogin(object.getGuestType(), object.getFacebookAppID());
     }
 

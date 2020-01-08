@@ -37,15 +37,13 @@ public class GuestHelper {
     public static int selfRequestCode;
     private String adID;
     private CallbackManager mFaceBookCallBack;
-    private boolean isStats;
 
 
-    GuestHelper(Activity activity, String clientID, String adID,boolean isStats,
+    GuestHelper(Activity activity, String clientID, String adID,
                 int selfRequestCode, OnLoginStateListener listener) {
         this.mActivityRef = new WeakReference<>(activity);
         this.clientID = clientID;
         this.adID = adID;
-        this.isStats=isStats;
         this.selfRequestCode = selfRequestCode;
         this.mListener = listener;
         this.mLoginTarget = Target.LOGIN_GUEST;
@@ -82,7 +80,7 @@ public class GuestHelper {
      * 游客登录
      */
     private void guestLogin() {
-        LoginRealizeManager.guestLogin(mActivityRef.get(), isStats, mListener);
+        LoginRealizeManager.guestLogin(mActivityRef.get(), mListener);
     }
 
 
@@ -104,7 +102,7 @@ public class GuestHelper {
                 initFaceBook(appID);
             } else if (TextUtils.equals(result, "3")) {//绑定Google
                 bindGoogle();
-            }else if (TextUtils.equals(result, "4")) {//解绑账户
+            } else if (TextUtils.equals(result, "4")) {//解绑账户
                 unBindAccount();
             }
         }
