@@ -37,13 +37,15 @@ public class GuestHelper {
     public static int selfRequestCode;
     private String adID;
     private CallbackManager mFaceBookCallBack;
+    private boolean isStats;
 
 
-    GuestHelper(Activity activity, String clientID, String adID,
+    GuestHelper(Activity activity, String clientID, String adID,boolean isStats,
                 int selfRequestCode, OnLoginStateListener listener) {
         this.mActivityRef = new WeakReference<>(activity);
         this.clientID = clientID;
         this.adID = adID;
+        this.isStats=isStats;
         this.selfRequestCode = selfRequestCode;
         this.mListener = listener;
         this.mLoginTarget = Target.LOGIN_GUEST;
@@ -80,7 +82,7 @@ public class GuestHelper {
      * 游客登录
      */
     private void guestLogin() {
-        LoginRealizeManager.guestLogin(mActivityRef.get(), mListener);
+        LoginRealizeManager.guestLogin(mActivityRef.get(), isStats, mListener);
     }
 
 

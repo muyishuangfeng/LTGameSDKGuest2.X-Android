@@ -75,7 +75,7 @@ public class GuestPlatform extends AbsPlatform {
     @Override
     public void login(Activity activity, int target, LoginObject object, OnLoginStateListener listener) {
         mGuestHelper = new GuestHelper(activity, object.getmGoogleClient(), object.getmAdID(),
-                object.getSelfRequestCode(), listener);
+                object.getStats(), object.getSelfRequestCode(), listener);
         mGuestHelper.guestLogin(object.getGuestType(), object.getFacebookAppID());
     }
 
